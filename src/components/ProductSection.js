@@ -68,7 +68,7 @@ const ProductSection = () => {
                 textAlign: "right",
                 width: "xs",
                 position: "absolute",
-                top: "-30%",
+                top: ["-50%", null, "-30%"],
                 right: "-48.9%",
               }}
             >

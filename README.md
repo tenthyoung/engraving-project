@@ -1,5 +1,9 @@
 # Engraving Project - Izzy Young
 
+## To view the deployed link:
+
+https://engraving-project.vercel.app/
+
 ## To run this project locally please do the following:
 
 1. Open up your terminal and cd into this root directory

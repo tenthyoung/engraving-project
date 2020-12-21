@@ -16,7 +16,13 @@ const ProductSection = () => {
   return (
     <Box sx={{ display: ["block", null, "flex"] }}>
       <Box className="ProductCarousal" sx={{ width: ["full", null, "1/2"] }}>
-        <Box sx={{ position: "relative" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+          }}
+        >
           <Image
             src="chef-knife.jpg"
             alt="8 inch chef knife"
@@ -48,7 +54,20 @@ const ProductSection = () => {
               {engraving}
             </Text>
           </Text>
+
+          <Image
+            src="dot-nav.png"
+            alt="nav-carousal"
+            sx={{ display: ["block", null, "none"], width: "full" }}
+          />
         </Box>
+
+        <Image
+          mt={2}
+          src="/carousal.png"
+          alt="knife carousal"
+          sx={{ display: ["none", null, "block"], width: "2/3" }}
+        />
       </Box>
 
       <Box
@@ -182,9 +201,8 @@ const ProductSection = () => {
           sx={{ width: "full", borderColor: "lightGray1", borderWidth: 1 }}
         />
 
-        <Spacer space="t.xs" />
-
         <Box
+          py="t.xs"
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -373,6 +391,101 @@ const ProductSection = () => {
             </Box>
           </Box>
         </Box>
+
+        <Divider
+          mt="t.xs"
+          mx="auto"
+          sx={{
+            width: "full",
+            borderColor: "lightGray1",
+            borderWidth: 1,
+          }}
+        />
+
+        <Text
+          as="h3"
+          mt="t.sm"
+          sx={{ fontFamily: "heading", fontWeight: "bold", fontSize: "sm" }}
+        >
+          $109
+        </Text>
+
+        <Text as="p" mt="t.sm" sx={{ fontSize: "sm" }}>
+          4 interest-free payments of $27.25.{" "}
+          <Text as="span" sx={{ fontFamily: "heading", fontWeight: "bold" }}>
+            Klarna.
+          </Text>
+          <Box as="br" />
+          <Link href="#">Learn More</Link>
+        </Text>
+
+        <Flex
+          my="t.sm"
+          sx={{ alignItems: "center", height: "t.md", width: "full" }}
+        >
+          <Box
+            mt="t.xs"
+            sx={{ display: "flex", position: "relative", width: "3/12" }}
+          >
+            <Box
+              as="select"
+              variant="forms.inlineSelect"
+              py="t.xs"
+              sx={{
+                display: "block",
+                width: "100%",
+                appearance: "none",
+                fontSize: "inherit",
+                lineHeight: "inherit",
+                border: "1px solid",
+                borderRight: "none",
+                borderColor: "lightGray1",
+                color: "inherit",
+                bg: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </Box>
+
+            <Flex
+              sx={{
+                position: "absolute",
+                right: 0,
+                top: "50%",
+                transform: "translateY(-50%)",
+                alignSelf: "center",
+                pointerEvents: "none",
+              }}
+            >
+              <svg
+                width={"24"}
+                height={"24"}
+                viewBox="0 0 24 24"
+                fill="currentcolor"
+              >
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </Flex>
+          </Box>
+
+          <Button
+            py={0}
+            sx={{
+              width: "full",
+              height: "t.md",
+              fontSize: "md",
+              position: "relative",
+              top: "0.4rem",
+            }}
+          >
+            Add to Cart
+          </Button>
+        </Flex>
       </Box>
     </Box>
   )

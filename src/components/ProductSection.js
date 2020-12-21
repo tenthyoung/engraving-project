@@ -16,6 +16,7 @@ const ProductSection = () => {
   const handlePersonalizationClick = () => {
     if (isEngraving === false) {
       setIsEngraving(true)
+      setEngraving("Clark Griswold")
     } else {
       setIsEngraving(false)
       setEngraving("")
@@ -56,7 +57,7 @@ const ProductSection = () => {
                 textAlign: "right",
                 width: "xs",
                 position: "absolute",
-                top: "-37.6%",
+                top: "-30%",
                 right: "-48.9%",
               }}
             >

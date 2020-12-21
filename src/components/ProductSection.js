@@ -13,6 +13,15 @@ const ProductSection = () => {
     setEngraving(event.target.value)
   }
 
+  const handlePersonalizationClick = () => {
+    if (isEngraving === false) {
+      setIsEngraving(true)
+    } else {
+      setIsEngraving(false)
+      setEngraving("")
+    }
+  }
+
   return (
     <Box sx={{ display: ["block", null, "flex"] }}>
       <Box className="ProductCarousal" sx={{ width: ["full", null, "1/2"] }}>
@@ -211,7 +220,7 @@ const ProductSection = () => {
         >
           <Button
             variant="link"
-            onClick={() => setIsEngraving(!isEngraving)}
+            onClick={handlePersonalizationClick}
             color="black"
             sx={{
               display: "flex",

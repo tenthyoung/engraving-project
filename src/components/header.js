@@ -1,7 +1,6 @@
 import React from "react"
 
 import { Box, Container, Flex, Image, Link, Text } from "theme-ui"
-import { SvgIcon } from "./SvgIcon"
 
 const primaryNavLinks = [
   "Cookware & Bakeware",
@@ -47,7 +46,7 @@ const Header = () => (
             <Link
               key={index}
               href="#"
-              pr={index != secondaryNavLinks.length - 1 ? 2 : 0}
+              pr={index !== secondaryNavLinks.length - 1 ? 2 : 0}
               sx={{
                 fontWeight: "bold",
                 fontSize: ["xs", null, "sm"],

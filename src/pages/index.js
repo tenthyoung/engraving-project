@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Box, Container, Divider, Flex, Heading, Image, Text } from "theme-ui"
+import React from "react"
+import { Container } from "theme-ui"
 import Layout from "../components/layout"
 import ProductSection from "../components/ProductSection"
 import SEO from "../components/seo"

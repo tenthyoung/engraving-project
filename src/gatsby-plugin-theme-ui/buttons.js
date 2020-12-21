@@ -117,7 +117,6 @@ export const buttons = {
       variant: "buttons.mvp.default",
       backgroundColor: "primary",
       borderColor: "primary",
-      borderWidth: "1px",
       borderStyle: "solid",
       borderWidth: "2px",
 
@@ -231,4 +230,4 @@ export const buttons = {
     width: "32px",
     height: "32px",
   },
-};
+}

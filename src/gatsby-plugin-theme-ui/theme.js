@@ -9,23 +9,23 @@ export const borderWidths = {
   2: "2px",
   4: "4px",
   8: "8px",
-};
+}
 
-export const breakpoints = ["640px", "768px", "1024px", "1280px"];
+export const breakpoints = ["640px", "768px", "1024px", "1280px"]
 
 export const baseFonts = {
   sans:
     '-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
   serif: 'Georgia, Cambria, "Times New Roman", Times, serif',
   mono: 'Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace',
-};
+}
 
 export const fonts = {
   ...baseFonts,
   body: baseFonts.sans,
   heading: "inherit",
   monospace: baseFonts.mono,
-};
+}
 
 export const fontSizes = {
   xs: "0.75rem",
@@ -44,7 +44,7 @@ export const fontSizes = {
   "9xl": "7rem",
   "10xl": "8rem",
   "11xl": "9rem",
-};
+}
 
 export const baseFontWeights = {
   hairline: "100",
@@ -56,13 +56,13 @@ export const baseFontWeights = {
   bold: "700",
   extrabold: "800",
   black: "900",
-};
+}
 
 export const fontWeights = {
   ...baseFontWeights,
   body: baseFontWeights.normal,
   heading: baseFontWeights.bold,
-};
+}
 
 export const letterSpacings = {
   tighter: "-0.05em",
@@ -71,7 +71,7 @@ export const letterSpacings = {
   wide: "0.025em",
   wider: "0.05em",
   widest: "0.1em",
-};
+}
 
 export const baseLineHeights = {
   none: "1",
@@ -88,13 +88,13 @@ export const baseLineHeights = {
   8: "2rem",
   9: "2.25rem",
   10: "2.5rem",
-};
+}
 
 export const lineHeights = {
   ...baseLineHeights,
   body: baseLineHeights.relaxed,
   heading: baseLineHeights.tight,
-};
+}
 
 export const radii = {
   none: "0",
@@ -103,7 +103,7 @@ export const radii = {
   md: "0.375rem",
   lg: "0.5rem",
   full: "9999px",
-};
+}
 
 export const sizes = {
   t: {
@@ -186,7 +186,7 @@ export const sizes = {
     lg: 80,
     xl: 80,
   },
-};
+}
 
 export const shadows = {
   xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
@@ -194,12 +194,13 @@ export const shadows = {
   default: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
   md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
   lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-  xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+  xl:
+    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
   "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
   inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
   outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
   none: "none",
-};
+}
 
 const space = {
   t: {
@@ -237,7 +238,7 @@ const space = {
   48: "12rem",
   56: "14rem",
   64: "16rem",
-};
+}
 
 export const zIndices = {
   auto: "auto",
@@ -247,7 +248,7 @@ export const zIndices = {
   30: "30",
   40: "40",
   50: "50",
-};
+}
 
 export const styles = {
   root: {
@@ -258,7 +259,7 @@ export const styles = {
     MozOsxFontSmoothing: "grayscale",
     WebkitFontSmoothing: "antialiased",
   },
-};
+}
 
 export const theme = {
   borderWidths,
@@ -274,4 +275,4 @@ export const theme = {
   radii,
   zIndices,
   styles,
-};
+}

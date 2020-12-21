@@ -1,7 +1,7 @@
-import { theme } from "./theme";
-import { buttons } from "./buttons";
-import { text } from "./text";
-import { colors } from "./colors";
+import { theme } from "./theme"
+import { buttons } from "./buttons"
+import { text } from "./text"
+import { colors } from "./colors"
 
 export default {
   ...theme,
@@ -11,7 +11,7 @@ export default {
 
   fonts: {
     ...theme.fonts,
-    heading: "'BebasNeue', sans-serif",
+    heading: "'Mark Pro', sans-serif",
     body: "'Source Sans Pro', sans-serif",
     lifestyle: "'freight-big-pro', serif",
     msSans: "'MsSans', sans-serif",
@@ -23,7 +23,6 @@ export default {
     container: {
       width: "full",
       maxWidth: ["full", null, null, 1170],
-      px: [2, 4],
     },
 
     checkout: {
@@ -337,4 +336,4 @@ export default {
       borderRadius: 99999,
     },
   },
-};
+}

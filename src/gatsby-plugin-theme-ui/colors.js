@@ -5,13 +5,14 @@ export const colors = {
   offWhite: "#fafafa",
   offBlack: "#131313",
 
-  lighterGray: "#f8f8f7",
-  lightGray: "#ebebeb",
-  gray: "#b8b6b6",
-  darkGray: "#666",
-  darkerGray: "#1c1c1c",
+  lightGray3: "#f8f8f7",
+  lightGray2: "#ebebeb",
+  lightGray1: "#b8b6b6",
+  gray: "#A4A4A4",
+  darkGray1: "#666",
+  darkGray2: "#1c1c1c",
 
-  primary: "#c99700",
+  primary: "#F04F36",
   primary2: "#ad8449",
 
   success: "#046c4e",
@@ -52,4 +53,4 @@ export const colors = {
     lighterGray: "#D0D0D0",
     skeletonGray: "#2C2C2C",
   },
-};
+}

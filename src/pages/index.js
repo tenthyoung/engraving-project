@@ -1,22 +1,23 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import React, { useState } from "react"
+import { Box, Container, Divider, Flex, Heading, Image, Text } from "theme-ui"
 import Layout from "../components/layout"
-import Image from "../components/image"
+import ProductSection from "../components/ProductSection"
 import SEO from "../components/seo"
+import { ThemeProvider } from "theme-ui"
+import theme from "../gatsby-plugin-theme-ui"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Container>
+          <SEO title="8 Inch Chef Knife" />
+
+          <ProductSection />
+        </Container>
+      </Layout>
+    </ThemeProvider>
+  )
+}
 
 export default IndexPage

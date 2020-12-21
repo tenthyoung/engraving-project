@@ -28,8 +28,15 @@ const ProductSection = () => {
   }
 
   return (
-    <Box sx={{ display: ["block", null, "flex"] }}>
-      <Box className="ProductCarousal" sx={{ width: ["full", null, "1/2"] }}>
+    <Box sx={{ display: ["block", null, "flex"], position: "relative" }}>
+      <Box
+        className="ProductCarousal"
+        sx={{
+          width: ["full", null, "1/2"],
+          maxWidth: ["none", null, 580],
+          position: ["static", null, "fixed"],
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -87,7 +94,12 @@ const ProductSection = () => {
       <Box
         px="t.sm"
         py="t.xs"
-        sx={{ width: ["full", null, "1/2"], position: "relative" }}
+        sx={{
+          width: ["full", null, "1/2"],
+          position: ["relative", null, "absolute"],
+          top: 0,
+          right: 0,
+        }}
       >
         <Flex color="lightGray1" sx={{ fontSize: "sm", alignItems: "center" }}>
           <Link

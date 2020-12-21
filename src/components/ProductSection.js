@@ -7,12 +7,10 @@ import { SvgIcon } from "./SvgIcon"
 const ProductSection = () => {
   const [isEngraving, setIsEngraving] = useState(false)
   const [isBlade, setIsBlade] = useState(true)
-  const [characterCount, setCharacterCount] = useState(25)
   const [engraving, setEngraving] = useState("")
 
   const handleEngravingInput = event => {
     setEngraving(event.target.value)
-    setCharacterCount(25 - engraving.length)
   }
 
   return (
@@ -26,23 +24,38 @@ const ProductSection = () => {
           />
 
           <Text
-            as="span"
             sx={{
-              fontSize: "xs",
-              textAlign: "right",
-              width: "sm",
               position: "absolute",
-              top: "60%",
-              right: "34%",
+              height: "10%",
+              width: "10%",
+              top: "50%",
+              left: "50%",
               transform: "skew(12deg) rotateZ(338deg)",
             }}
           >
-            {engraving}
+            <Text
+              as="span"
+              sx={{
+                fontFamily: "heading",
+                fontSize: ["0.65rem", "sm", "0.6rem", "xs"],
+                textAlign: "right",
+                width: "xs",
+                position: "absolute",
+                top: "-37.6%",
+                right: "-48.9%",
+              }}
+            >
+              {engraving}
+            </Text>
           </Text>
         </Box>
       </Box>
 
-      <Box px="t.sm" py="t.xs" sx={{ width: ["full", null, "1/2"] }}>
+      <Box
+        px="t.sm"
+        py="t.xs"
+        sx={{ width: ["full", null, "1/2"], position: "relative" }}
+      >
         <Flex color="lightGray1" sx={{ fontSize: "sm", alignItems: "center" }}>
           <Link
             sx={{
@@ -100,6 +113,7 @@ const ProductSection = () => {
         <Spacer />
 
         <Link
+          color="black"
           sx={{
             fontFamily: "heading",
             fontSize: "sm",
@@ -120,10 +134,18 @@ const ProductSection = () => {
           sx={{ width: "full", borderColor: "lightGray1", borderWidth: 1 }}
         />
 
-        <Spacer space="t.xs" />
-
-        <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
-          <Text sx={{ fontFamily: "heading", fontWeight: "bold" }}>
+        <Flex
+          py={1}
+          sx={{ justifyContent: "space-between", alignItems: "center" }}
+        >
+          <Text
+            color="black"
+            sx={{
+              fontFamily: "heading",
+              fontSize: "sm",
+              fontWeight: "bold",
+            }}
+          >
             Color: Pomme Red
           </Text>
 
@@ -135,10 +157,20 @@ const ProductSection = () => {
           sx={{ width: "full", borderColor: "lightGray1", borderWidth: 1 }}
         />
 
-        <Spacer space="t.xs" />
-
-        <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
-          <Text sx={{ fontFamily: "heading", fontWeight: "bold" }}>Size</Text>
+        <Flex
+          py={2}
+          sx={{ justifyContent: "space-between", alignItems: "center" }}
+        >
+          <Text
+            color="black"
+            sx={{
+              fontFamily: "heading",
+              fontSize: ["sm"],
+              fontWeight: "bold",
+            }}
+          >
+            Size
+          </Text>
 
           <Text px={4} py={1} sx={{ border: "1px solid black" }}>
             8"
@@ -156,7 +188,7 @@ const ProductSection = () => {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            height: "t.xl",
+            height: ["none", null, "t.xl"],
           }}
         >
           <Button
@@ -168,9 +200,10 @@ const ProductSection = () => {
               alignItems: "center",
               width: "1/2",
               fontFamily: "heading",
-              fontSize: "md",
+              fontSize: ["sm"],
               fontWeight: "bold",
               outline: "none !important",
+              ":hover": { textDecoration: "none" },
             }}
           >
             <Box
@@ -191,7 +224,7 @@ const ProductSection = () => {
           <Image
             src="blade-zoom.png"
             alt="blade zoom"
-            sx={{ display: isEngraving ? "none" : "block" }}
+            sx={{ display: ["none", null, isEngraving ? "none" : "block"] }}
           />
         </Box>
 
@@ -212,31 +245,37 @@ const ProductSection = () => {
 
           <Spacer space={4} />
 
-          <Flex sx={{ justifyContent: "space-between", alignItems: "center" }}>
+          <Flex sx={{ justifyContent: "space-between" }}>
             <Box
               mr={1}
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "space-between",
                 alignItems: "center",
+                height: "10rem",
                 width: "full",
               }}
             >
               <Button
                 variant="ghost"
                 onClick={() => setIsBlade(true)}
-                px={0}
+                p={0}
                 sx={{
                   borderStyle: "solid",
-                  borderWidth: isBlade ? "2px" : 0,
-                  borderColor: "primary",
+                  borderWidth: "2px",
+                  borderColor: isBlade ? "primary" : "transparent",
                   ":focus": { outlineColor: "primary" },
                 }}
               >
                 <Image
                   src="blade-zoom.png"
                   alt="blade zoom"
-                  sx={{ width: "full" }}
+                  sx={{
+                    display: isEngraving ? "block" : "none",
+                    height: "t.xl",
+                    width: "full",
+                  }}
                 />
               </Button>
 
@@ -248,7 +287,7 @@ const ProductSection = () => {
                   fontWeight: "bold",
                 }}
               >
-                Blade: +$20
+                Handle: +$20
               </Text>
             </Box>
 
@@ -257,18 +296,20 @@ const ProductSection = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "space-between",
                 alignItems: "center",
+                height: "10rem",
                 width: "full",
               }}
             >
               <Button
                 variant="ghost"
                 onClick={() => setIsBlade(false)}
-                px={0}
+                p={0}
                 sx={{
                   borderStyle: "solid",
-                  borderWidth: isBlade ? 0 : "2px",
-                  borderColor: "primary",
+                  borderWidth: "2px",
+                  borderColor: isBlade ? "transparent" : "primary",
                   ":focus": { outlineColor: "primary" },
                 }}
               >
@@ -277,6 +318,7 @@ const ProductSection = () => {
                   alt="handle zoom"
                   sx={{
                     display: isEngraving ? "block" : "none",
+                    height: "t.xl",
                     width: "full",
                   }}
                 />
@@ -311,6 +353,7 @@ const ProductSection = () => {
               onChange={handleEngravingInput}
               type="text"
               placeholder="Enter Engraving"
+              maxLength={25}
               bg="white"
               sx={{ ":focus": { outline: "none" } }}
             />
@@ -326,7 +369,7 @@ const ProductSection = () => {
                 right: "1rem",
               }}
             >
-              {characterCount}
+              {25 - engraving.length}
             </Box>
           </Box>
         </Box>

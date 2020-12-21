@@ -13,7 +13,16 @@ const primaryNavLinks = [
 const secondaryNavLinks = ["Our Story", "Reviews", "Care", "Blog"]
 
 const Header = () => (
-  <Box as="header" sx={{ fontFamily: "heading" }}>
+  <Box
+    as="header"
+    sx={{
+      fontFamily: "heading",
+      width: "full",
+      position: "fixed",
+      top: 0,
+      zIndex: 10,
+    }}
+  >
     <Box className="SuperBanner" bg="#efeae0" px="t.sm" py={2}>
       <Container>
         {" "}
@@ -36,6 +45,7 @@ const Header = () => (
         {secondaryNavLinks.map((link, index) => {
           return (
             <Link
+              key={index}
               href="#"
               pr={index != secondaryNavLinks.length - 1 ? 2 : 0}
               sx={{
@@ -77,8 +87,9 @@ const Header = () => (
               position: "relative",
             }}
           >
-            {primaryNavLinks.map(link => (
+            {primaryNavLinks.map((link, index) => (
               <Link
+                key={index}
                 mr="t.xs"
                 sx={{
                   fontSize: "sm",

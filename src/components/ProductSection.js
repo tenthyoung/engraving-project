@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 import { Box, Button, Divider, Flex, Input, Link, Image, Text } from "theme-ui"
+import { Transition, animated } from "react-spring/renderprops"
 import Spacer from "./Spacer"
 import { SvgIcon } from "./SvgIcon"
 
@@ -8,9 +9,11 @@ const ProductSection = () => {
   const [isEngraving, setIsEngraving] = useState(false)
   const [isBlade, setIsBlade] = useState(true)
   const [engraving, setEngraving] = useState("")
+  const [isDefaultEngraving, setIsDefaultEngraving] = useState(true)
 
   const handleEngravingInput = event => {
     setEngraving(event.target.value)
+    setIsDefaultEngraving(false)
   }
 
   const handlePersonalizationClick = () => {
@@ -20,6 +23,7 @@ const ProductSection = () => {
     } else {
       setIsEngraving(false)
       setEngraving("")
+      setIsDefaultEngraving(true)
     }
   }
 
@@ -252,155 +256,180 @@ const ProductSection = () => {
           <Image
             src="blade-zoom.png"
             alt="blade zoom"
-            sx={{ display: ["none", null, isEngraving ? "none" : "block"] }}
+            sx={{
+              display: ["none", null, isEngraving ? "none" : "block"],
+            }}
           />
         </Box>
 
-        <Box
-          className="EngraveSection"
-          bg="lightGray2"
-          px="t.sm"
-          py="t.xs"
-          mt="t.xs"
-          sx={{ display: isEngraving ? "block" : "none" }}
+        <Transition
+          items={isEngraving}
+          from={{ opacity: 0, height: 0 }}
+          enter={{ opacity: 1, height: "auto" }}
+          leave={{ opacity: 0, height: 0 }}
+          config={{ mass: 10, tension: 280, friction: 100 }}
         >
-          <Text
-            as="h3"
-            sx={{ fontFamily: "heading", fontSize: "xs", fontWeight: "bold" }}
-          >
-            Where would you like your engraving?
-          </Text>
+          {show =>
+            show &&
+            (props => (
+              <animated.div style={props}>
+                <Box
+                  className="EngraveSection"
+                  bg="lightGray2"
+                  px="t.sm"
+                  py="t.xs"
+                  mt="t.xs"
+                  sx={{ display: isEngraving ? "block" : "none" }}
+                >
+                  <Text
+                    as="h3"
+                    sx={{
+                      fontFamily: "heading",
+                      fontSize: "xs",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Where would you like your engraving?
+                  </Text>
 
-          <Spacer space={4} />
+                  <Spacer space={4} />
 
-          <Flex sx={{ justifyContent: "space-between" }}>
-            <Box
-              mr={1}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                height: "10rem",
-                width: "full",
-              }}
-            >
-              <Button
-                variant="ghost"
-                onClick={() => setIsBlade(true)}
-                p={0}
-                sx={{
-                  borderStyle: "solid",
-                  borderWidth: "2px",
-                  borderColor: isBlade ? "primary" : "transparent",
-                  ":focus": { outlineColor: "primary" },
-                }}
-              >
-                <Image
-                  src="blade-zoom.png"
-                  alt="blade zoom"
-                  sx={{
-                    display: isEngraving ? "block" : "none",
-                    height: "t.xl",
-                    width: "full",
-                  }}
-                />
-              </Button>
+                  <Flex sx={{ justifyContent: "space-between" }}>
+                    <Box
+                      mr={1}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        height: "10rem",
+                        width: "full",
+                      }}
+                    >
+                      <Button
+                        variant="ghost"
+                        onClick={() => setIsBlade(true)}
+                        p={0}
+                        sx={{
+                          borderStyle: "solid",
+                          borderWidth: "2px",
+                          borderColor: isBlade ? "primary" : "transparent",
+                          ":focus": { outlineColor: "primary" },
+                        }}
+                      >
+                        <Image
+                          src="blade-zoom.png"
+                          alt="blade zoom"
+                          sx={{
+                            display: isEngraving ? "block" : "none",
+                            height: "t.xl",
+                            width: "full",
+                          }}
+                        />
+                      </Button>
 
-              <Text
-                as="span"
-                sx={{
-                  fontFamily: "heading",
-                  fontSize: "xs",
-                  fontWeight: "bold",
-                }}
-              >
-                Handle: +$20
-              </Text>
-            </Box>
+                      <Text
+                        as="span"
+                        sx={{
+                          fontFamily: "heading",
+                          fontSize: "xs",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Handle: +$20
+                      </Text>
+                    </Box>
 
-            <Box
-              ml={1}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                height: "10rem",
-                width: "full",
-              }}
-            >
-              <Button
-                variant="ghost"
-                onClick={() => setIsBlade(false)}
-                p={0}
-                sx={{
-                  borderStyle: "solid",
-                  borderWidth: "2px",
-                  borderColor: isBlade ? "transparent" : "primary",
-                  ":focus": { outlineColor: "primary" },
-                }}
-              >
-                <Image
-                  src="handle-zoom.png"
-                  alt="handle zoom"
-                  sx={{
-                    display: isEngraving ? "block" : "none",
-                    height: "t.xl",
-                    width: "full",
-                  }}
-                />
-              </Button>
+                    <Box
+                      ml={1}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        height: "10rem",
+                        width: "full",
+                      }}
+                    >
+                      <Button
+                        variant="ghost"
+                        onClick={() => setIsBlade(false)}
+                        p={0}
+                        sx={{
+                          borderStyle: "solid",
+                          borderWidth: "2px",
+                          borderColor: isBlade ? "transparent" : "primary",
+                          ":focus": { outlineColor: "primary" },
+                        }}
+                      >
+                        <Image
+                          src="handle-zoom.png"
+                          alt="handle zoom"
+                          sx={{
+                            display: isEngraving ? "block" : "none",
+                            height: "t.xl",
+                            width: "full",
+                          }}
+                        />
+                      </Button>
 
-              <Text
-                as="span"
-                sx={{
-                  fontFamily: "heading",
-                  fontSize: "xs",
-                  fontWeight: "bold",
-                }}
-              >
-                Handle: +$20
-              </Text>
-            </Box>
-          </Flex>
+                      <Text
+                        as="span"
+                        sx={{
+                          fontFamily: "heading",
+                          fontSize: "xs",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Handle: +$20
+                      </Text>
+                    </Box>
+                  </Flex>
 
-          <Spacer space={4} />
+                  <Spacer space={4} />
 
-          <Text
-            as="h3"
-            sx={{ fontFamily: "heading", fontSize: "xs", fontWeight: "bold" }}
-          >
-            Where would you like your engraving?
-          </Text>
+                  <Text
+                    as="h3"
+                    sx={{
+                      fontFamily: "heading",
+                      fontSize: "xs",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Where would you like your engraving?
+                  </Text>
 
-          <Spacer space={3} />
+                  <Spacer space={3} />
 
-          <Box as="form" sx={{ position: "relative" }}>
-            <Input
-              onChange={handleEngravingInput}
-              type="text"
-              placeholder="Enter Engraving"
-              maxLength={25}
-              bg="white"
-              sx={{ ":focus": { outline: "none" } }}
-            />
+                  <Box as="form" sx={{ position: "relative" }}>
+                    <Input
+                      onChange={handleEngravingInput}
+                      type="text"
+                      placeholder="Enter Engraving"
+                      maxLength={25}
+                      bg="white"
+                      sx={{ ":focus": { outline: "none" } }}
+                    />
 
-            <Box
-              as="span"
-              sx={{
-                fontFamily: "heading",
-                fontSize: "xs",
-                fontWeight: "bold",
-                position: "absolute",
-                top: "0.85rem",
-                right: "1rem",
-              }}
-            >
-              {25 - engraving.length}
-            </Box>
-          </Box>
-        </Box>
+                    <Box
+                      as="span"
+                      sx={{
+                        fontFamily: "heading",
+                        fontSize: "xs",
+                        fontWeight: "bold",
+                        position: "absolute",
+                        top: "0.85rem",
+                        right: "1rem",
+                      }}
+                    >
+                      {isDefaultEngraving ? 25 : 25 - engraving.length}
+                    </Box>
+                  </Box>
+                </Box>
+              </animated.div>
+            ))
+          }
+        </Transition>
 
         <Divider
           mt="t.xs"
